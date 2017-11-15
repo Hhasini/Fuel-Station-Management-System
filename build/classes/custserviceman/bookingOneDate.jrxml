@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bookingOneDate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f3d63a9-b5c5-45bd-8c91-1bcb9b1dff99">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="dateOfBook" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select *
+from bookings
+where dateOfBook=$P{dateOfBook}]]>
+	</queryString>
+	<field name="bookID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="custID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="custName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleModel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dateOfBook" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="carWash" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tyreRemove" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="seatShamp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fullLubService" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fullDetail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="leatherSeatCare" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="autoDetail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interiorDet" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="repairs" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wheelAlignment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="extDetail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="painting" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wheelBalance" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stdDetails" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="164" height="126" uuid="1e9f890b-c68e-4a97-83e4-dd0149692401"/>
+				<imageExpression><![CDATA["coffee.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="170" y="0" width="263" height="62" uuid="eb6d3b9e-4e82-4267-8640-871c09e122bb"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Coffee Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="219" y="62" width="196" height="22" uuid="2ae02d2e-628e-4449-9447-10a99ac31894"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Coffee SubTitle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="94" width="383" height="42" uuid="ca7eea11-0ffc-451a-8afe-1017c9f54bd8"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor purus gravida arcu aliquam mattis. Donec et nulla libero, ut varius massa. Nulla sed turpis elit. Etiam aliquet mauris a ligula hendrerit in auctor leo lobortis.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="433" y="-115" width="267" height="209" uuid="c4fba31a-53a3-4d41-9423-4ff3099116fb"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="0f19e9cd-efb3-4e69-9627-07738a2446ea"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="27" height="15" forecolor="#736343" uuid="738e258d-8a28-4410-b066-5f3571237518"/>
+				<text><![CDATA[bookID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="27" y="0" width="27" height="15" forecolor="#736343" uuid="e941bfa0-e2c7-4ed4-921d-45d205f215bd"/>
+				<text><![CDATA[custID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="54" y="0" width="27" height="15" forecolor="#736343" uuid="e30b01b4-a86a-4419-acc3-7c4cd110cd5b"/>
+				<text><![CDATA[custName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="81" y="0" width="27" height="15" forecolor="#736343" uuid="292538e3-82c0-4ff6-9d17-ae78e0d2b319"/>
+				<text><![CDATA[vehicleNumber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="108" y="0" width="27" height="15" forecolor="#736343" uuid="83f473a7-9cd9-4e92-af20-3019e225f76b"/>
+				<text><![CDATA[vehicleModel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="135" y="0" width="27" height="15" forecolor="#736343" uuid="2ea739e7-a035-4e29-a0de-2e5089597fd2"/>
+				<text><![CDATA[dateOfBook]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="162" y="0" width="27" height="15" forecolor="#736343" uuid="37309144-5b10-480c-bbcd-2c80f2d971cf"/>
+				<text><![CDATA[carWash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="189" y="0" width="27" height="15" forecolor="#736343" uuid="b32447e6-62f7-478b-ac29-135edc21fa42"/>
+				<text><![CDATA[tyreRemove]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="216" y="0" width="27" height="15" forecolor="#736343" uuid="5f442a82-dfd7-4d57-ad0d-a853e0e9a29d"/>
+				<text><![CDATA[seatShamp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="243" y="0" width="27" height="15" forecolor="#736343" uuid="a80c52df-d233-41cb-a844-0ff4a668f87b"/>
+				<text><![CDATA[fullLubService]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="270" y="0" width="27" height="15" forecolor="#736343" uuid="bde3a4a1-86a9-4708-a25d-60120260977f"/>
+				<text><![CDATA[fullDetail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="297" y="0" width="27" height="15" forecolor="#736343" uuid="00191c0e-baad-4733-bd01-8b0a4817d311"/>
+				<text><![CDATA[leatherSeatCare]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="324" y="0" width="27" height="15" forecolor="#736343" uuid="73ef6d99-72c8-49e6-ba45-8a49f25ad0dd"/>
+				<text><![CDATA[autoDetail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="351" y="0" width="27" height="15" forecolor="#736343" uuid="8344fa25-68e5-4c04-bacd-eddbf269215a"/>
+				<text><![CDATA[interiorDet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="378" y="0" width="27" height="15" forecolor="#736343" uuid="ddd49923-2787-4efd-834f-e4b45979559c"/>
+				<text><![CDATA[repairs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="405" y="0" width="27" height="15" forecolor="#736343" uuid="ef0f93ab-5f27-453d-b013-e0e9806a61a6"/>
+				<text><![CDATA[wheelAlignment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="432" y="0" width="27" height="15" forecolor="#736343" uuid="8f91384f-01b9-43c3-bc7b-fe10fde7387a"/>
+				<text><![CDATA[extDetail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="459" y="0" width="27" height="15" forecolor="#736343" uuid="40989c33-d3fa-4587-ad6f-0926c596605f"/>
+				<text><![CDATA[painting]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="486" y="0" width="27" height="15" forecolor="#736343" uuid="f15f7c0e-13eb-4b56-9170-23247349077c"/>
+				<text><![CDATA[wheelBalance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="513" y="0" width="27" height="15" forecolor="#736343" uuid="6e05aeb9-ceb3-4467-9469-8fb2d8e28b18"/>
+				<text><![CDATA[stdDetails]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="7e83d4ae-8f47-46c4-8c15-6fdf59b782a6"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="27" height="15" uuid="7110588e-af82-4bfc-9af4-6b1cb6ac11a4"/>
+					<textFieldExpression><![CDATA[$F{bookID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="27" y="0" width="27" height="15" uuid="15f7dfb4-0fcb-4c24-b201-b6a892bbb067"/>
+					<textFieldExpression><![CDATA[$F{custID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="54" y="0" width="27" height="15" uuid="4780a0b7-b862-4aa8-9f22-1e925b0885ad"/>
+					<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="81" y="0" width="27" height="15" uuid="662978b6-9f3d-4822-bce4-cce06bb387f3"/>
+					<textFieldExpression><![CDATA[$F{vehicleNumber}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="108" y="0" width="27" height="15" uuid="faf87547-bad2-4396-b4fe-16f4f8d7b945"/>
+					<textFieldExpression><![CDATA[$F{vehicleModel}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="135" y="0" width="27" height="15" uuid="8fd647ad-a92f-45c4-a04b-73855271bbee"/>
+					<textFieldExpression><![CDATA[$F{dateOfBook}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="162" y="0" width="27" height="15" uuid="eadc298f-c80d-4789-bef8-d78917e5bae2"/>
+					<textFieldExpression><![CDATA[$F{carWash}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="189" y="0" width="27" height="15" uuid="f38bfbf5-9753-48bf-a21d-6aebdf1abc15"/>
+					<textFieldExpression><![CDATA[$F{tyreRemove}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="216" y="0" width="27" height="15" uuid="1efe6cb6-2299-459a-9a35-ebb66888b721"/>
+					<textFieldExpression><![CDATA[$F{seatShamp}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="243" y="0" width="27" height="15" uuid="0670e81d-f320-4359-9cbb-7718f8218645"/>
+					<textFieldExpression><![CDATA[$F{fullLubService}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="270" y="0" width="27" height="15" uuid="4a44e82c-b229-4ed8-9da8-c1a238027ab8"/>
+					<textFieldExpression><![CDATA[$F{fullDetail}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="297" y="0" width="27" height="15" uuid="3ed016a6-939a-40df-88ce-ab5764057f86"/>
+					<textFieldExpression><![CDATA[$F{leatherSeatCare}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="324" y="0" width="27" height="15" uuid="ea834875-0258-4d04-b7a3-0383cbce0d1b"/>
+					<textFieldExpression><![CDATA[$F{autoDetail}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="351" y="0" width="27" height="15" uuid="bc394647-f381-4162-ad5b-3e23ddfcf9a6"/>
+					<textFieldExpression><![CDATA[$F{interiorDet}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="378" y="0" width="27" height="15" uuid="7247c831-7265-416c-84d5-f55fe116ed5b"/>
+					<textFieldExpression><![CDATA[$F{repairs}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="405" y="0" width="27" height="15" uuid="398d2494-9c1c-4b75-b529-422e6ab2b4e8"/>
+					<textFieldExpression><![CDATA[$F{wheelAlignment}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="432" y="0" width="27" height="15" uuid="61049ecc-0e03-4fde-a3ec-dc62d9e624e7"/>
+					<textFieldExpression><![CDATA[$F{extDetail}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="459" y="0" width="27" height="15" uuid="f58ea4e0-23e9-4190-91aa-69df116a8886"/>
+					<textFieldExpression><![CDATA[$F{painting}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="486" y="0" width="27" height="15" uuid="db49d623-f020-4597-be53-a9702133e9b9"/>
+					<textFieldExpression><![CDATA[$F{wheelBalance}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="513" y="0" width="27" height="15" uuid="9379d417-756e-4320-9e96-b3e43ddeb95a"/>
+					<textFieldExpression><![CDATA[$F{stdDetails}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4f49d029-6165-4f20-b726-df8031df663e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="66783154-1312-47d5-b644-c80a24da8c14"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="4133e110-c603-4826-a7d6-fb38828a07cd"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="58b89df7-4b91-4c39-aac4-86fc50a7c01c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="d1d4e10c-1621-41b1-addd-0964ea6206df"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

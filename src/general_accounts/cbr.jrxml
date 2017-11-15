@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cbr" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ead7e72f-a3d4-4be1-86a9-a3165b0aa3da">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select r.Date as Reciept_Date, p.Date as Payment_Date,r.Description as Reciept_Description,p.Description as Payment_Description,r.Amount as Reciept_Amount,p.Amount as Payment_Amount
+from cashbook_reciepts r,cashbook_payments p
+where r.Date=p.Date and r.Date=$P{date}]]>
+	</queryString>
+	<field name="Reciept_Date" class="java.lang.String"/>
+	<field name="Payment_Date" class="java.lang.String"/>
+	<field name="Reciept_Description" class="java.lang.String"/>
+	<field name="Payment_Description" class="java.lang.String"/>
+	<field name="Reciept_Amount" class="java.lang.Double"/>
+	<field name="Payment_Amount" class="java.lang.Double"/>
+	<variable name="totReciepts" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Reciept_Amount}]]></variableExpression>
+	</variable>
+	<variable name="difference" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{totReciepts}-$F{Payment_Amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="431" height="40" uuid="6bcf8900-e91a-45ba-800a-a9413a426840"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[A.P.Gunawardhane Company (Pvt) Ltd ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="40" width="123" height="20" uuid="613def91-7289-46d7-848a-763a3c7acd50"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cash Book Summary]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="357" y="15" width="100" height="20" uuid="eca72523-5448-43f1-9b40-2407085f9649"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Payments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="15" width="100" height="20" uuid="24070d9e-fafc-4d01-b762-2dfa6dc21c7b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Reciepts]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="74" y="11" width="100" height="20" uuid="9f389f5f-b8cc-4987-9a53-524e396a83cc"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="10" width="83" height="20" uuid="dee16667-35b1-48cd-a346-abfa478f72ae"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="10" width="100" height="20" uuid="fa8345dc-161b-4455-9c1d-afc8dd5e41de"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="10" width="97" height="20" uuid="8ff5395e-5833-42d9-962e-6db4262e51d3"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="11" width="101" height="20" uuid="7bd9fe0d-810a-436e-b5da-a9986f84bb0f"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="74" height="20" uuid="8f86ad70-0dfa-48d8-ab1a-02ce33ba7fe8"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="30" width="555" height="1" uuid="1779a8ff-553e-4e67-9aa2-5140f7d94609"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="933d59ff-4843-4baf-b948-6d43cbe4c8ca"/>
+				<textFieldExpression><![CDATA[$F{Payment_Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="74" height="20" uuid="6b4db151-d854-4f0b-befe-f7873678a4e0"/>
+				<textFieldExpression><![CDATA[$F{Reciept_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="82" height="20" uuid="0eeaa417-443d-47a5-813c-577d0523eea1"/>
+				<textFieldExpression><![CDATA[$F{Payment_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="0" width="100" height="20" uuid="3a5f5818-f8b1-42c1-b548-1b3cc5b2e274"/>
+				<textFieldExpression><![CDATA[$F{Reciept_Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="100" height="20" uuid="1ca6fef0-c40b-4dcc-b837-46d160bca12d"/>
+				<textFieldExpression><![CDATA[$F{Reciept_Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="0" width="97" height="20" uuid="f396f0d1-5a50-4b5f-ae45-f00c639e35ff"/>
+				<textFieldExpression><![CDATA[$F{Payment_Description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="41" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="22" width="100" height="20" uuid="6d7f0e58-1df1-4d6a-bddc-c57df161e2f6"/>
+				<text><![CDATA[Balance C/D]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="2" width="100" height="20" uuid="c1c9b98d-e819-4699-b75d-7b7329c9d1f2"/>
+				<text><![CDATA[Balance B/D]]></text>
+			</staticText>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement x="174" y="22" width="100" height="20" uuid="30657541-f10f-43a7-9da5-82f42f472115"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totReciepts}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement x="455" y="22" width="100" height="20" uuid="b36878ad-10ab-47d5-8047-6f07d210be32"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totReciepts}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement x="455" y="0" width="100" height="20" uuid="7cfaeac3-d2b2-4370-8f12-465612ffbec7"/>
+				<textElement>
+					<font isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{difference}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cbReportPara" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17cb8f93-e62d-4e3a-a317-ed02cbc3da97">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sdate" class="java.lang.String"/>
+	<parameter name="edate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select r.Date as Reciept_Date, p.Date as Payment_Date,r.Description as Reciept_Description,p.Description as Payment_Description,r.Amount as Reciept_Amount,p.Amount as Payment_Amount
+from cashbook_reciepts r,cashbook_payments p
+where  r.Date=p.Date and r.Date<= $P{sdate} ]]>
+	</queryString>
+	<field name="Reciept_Date" class="java.lang.String"/>
+	<field name="Payment_Date" class="java.lang.String"/>
+	<field name="Reciept_Description" class="java.lang.String"/>
+	<field name="Payment_Description" class="java.lang.String"/>
+	<field name="Reciept_Amount" class="java.lang.Double"/>
+	<field name="Payment_Amount" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="431" height="40" uuid="b69e6739-e73d-4053-a8e7-fd569a1d9246"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[A.P.Gunawardhane Company (pvt) Ltd ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="50" width="123" height="20" uuid="95f612d8-9438-412b-86fb-2c28f0fbcf1c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cash Book Summery]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="333" y="15" width="100" height="20" uuid="37482332-81c6-42a9-96e0-8af1bbd78d45"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Payments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="15" width="100" height="20" uuid="1fba400f-82e0-4ac6-b44a-43852ca1eff6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Reciepts]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="358" y="2" width="100" height="20" uuid="3f6127d9-8f14-455f-9c13-e303bef2884d"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="2" width="100" height="20" uuid="296ba13f-b73a-44ac-9d1d-2479f0875c2b"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="2" width="83" height="20" uuid="25ce8208-c7f9-46ca-9c49-53dc60bd4f21"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="2" width="97" height="20" uuid="51a64c0b-0c5a-4ad9-b6cc-9cd4729c9343"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="74" height="20" uuid="a7d913ee-b3bb-4f91-84fc-99c8be80b4a6"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="2" width="101" height="20" uuid="91bf840b-f4e3-496b-b510-0675377d1578"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="555" height="1" uuid="32e3deee-c336-4619-b19a-0b27eed67e84"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="74" height="20" uuid="4d2b6a79-628d-49d5-ab6a-49ade31bafe4"/>
+				<textFieldExpression><![CDATA[$F{Reciept_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="0" width="100" height="20" uuid="1369567c-61d9-4bfc-bc7d-95d698270072"/>
+				<textFieldExpression><![CDATA[$F{Reciept_Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="0" width="100" height="20" uuid="b40391ce-7cec-4f83-92f4-47a8d17f23f1"/>
+				<textFieldExpression><![CDATA[$F{Reciept_Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="0" width="84" height="20" uuid="a9bcb333-2b18-4596-bb00-761924fde902"/>
+				<textFieldExpression><![CDATA[$F{Payment_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="0" width="100" height="20" uuid="5bc728c3-cf76-44ca-b418-11d1383cb8e8"/>
+				<textFieldExpression><![CDATA[$F{Payment_Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="0" width="97" height="20" uuid="ffa23f8d-6249-4bc4-875b-40cf3042ec03"/>
+				<textFieldExpression><![CDATA[$F{Payment_Amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

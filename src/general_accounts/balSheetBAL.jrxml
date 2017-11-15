@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="balSheetBAL" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6680144a-58a3-4629-b21f-e8d691767909">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select Type like '% Assets' as Assets,Type like '% Liabilities' as Liabilities,Description as 'AssetsDes' , Description as 'LiaDes',Amount as 'AssAmount',Amount as 'LiaAmount'
+from Assets_and_Liabilities]]>
+	</queryString>
+	<field name="Assets" class="java.lang.Long"/>
+	<field name="Liabilities" class="java.lang.Long"/>
+	<field name="AssetsDes" class="java.lang.String"/>
+	<field name="LiaDes" class="java.lang.String"/>
+	<field name="AssAmount" class="java.lang.Double"/>
+	<field name="LiaAmount" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="428" y="40" width="127" height="21" uuid="8eec65ee-2a86-4663-8991-83d1851fe635"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balanced Sheet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="428" height="40" uuid="01e3db09-171e-487c-92d7-80c2a2b8e2c7"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[A.P.Gunawardhane Company (Pvt) Ltd ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="82" height="20" uuid="74e47b2b-e6f1-4d76-b64a-d114a1b67d81"/>
+				<text><![CDATA[Asse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="0" width="82" height="20" uuid="3dfc2491-8df2-4c59-9886-7c6123bf6084"/>
+				<text><![CDATA[Asse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="82" height="20" uuid="bf87805c-6820-40fa-a2b0-afb847a1cdd4"/>
+				<text><![CDATA[Asse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="0" width="82" height="20" uuid="82006e81-6fe6-43ab-9ba6-644b42a20565"/>
+				<text><![CDATA[Asse]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="82" height="20" uuid="cb6b65bf-e893-4342-a251-1f7e9f6df276"/>
+				<textFieldExpression><![CDATA[$F{Assets}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="82" height="20" uuid="684ade2b-9a43-4465-b8ef-c333e5adb8d7"/>
+				<textFieldExpression><![CDATA[$F{Liabilities}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="82" height="20" uuid="0c1f912b-1918-44eb-b59e-c8580d164c05"/>
+				<textFieldExpression><![CDATA[$F{AssetsDes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="0" width="82" height="20" uuid="30c9fb82-02bb-4533-b418-801429e8c108"/>
+				<textFieldExpression><![CDATA[$F{AssAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

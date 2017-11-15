@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fullProductOrder" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9c51a50-ac22-46c4-bc9d-97a8594b4407">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select *
+from productorder]]>
+	</queryString>
+	<field name="prodOrderID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="custID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="custName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noCarWash" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noOilCans" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noAirFilters" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noFuelfilters" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noGrease" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noPolishCloths" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noPolishCans" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="noAirFreshners" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="date">
+		<groupExpression><![CDATA[$F{date}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="-21" y="7" width="597" height="24" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="2591e2a4-e1f0-4135-ae3a-d22b2f2d3de7"/>
+					<rectangle>
+						<reportElement mode="Opaque" x="21" y="0" width="36" height="24" backcolor="#736343" uuid="d2cc094f-47b8-4f83-b104-345a522daa34"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<textField>
+						<reportElement style="SubTitle" x="68" y="0" width="413" height="24" forecolor="#736343" uuid="a00e1a34-7666-4abb-a0d4-806dfa746b39"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="554" height="62" uuid="3a1959cc-94b0-4a71-a8a1-0cc9a0320554"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[A.P.GUNAWARDHANE COMPANY (PVT)Ltd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="87" y="62" width="395" height="22" uuid="1e8d0e9d-26ad-4c3a-a415-34b3b8d634ef"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Overall Service Station Product Order Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="f37b2ced-6f71-4ea6-a5b6-eeb07741c867"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="50" height="15" forecolor="#736343" uuid="dc73db9c-5d5f-44c3-9db5-ff7156022b49"/>
+				<text><![CDATA[prodOrderID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="50" y="0" width="50" height="15" forecolor="#736343" uuid="2aa5aa68-d564-4c09-98c5-02eac478ad6e"/>
+				<text><![CDATA[custID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="100" y="0" width="50" height="15" forecolor="#736343" uuid="23e1cdee-496b-4703-b134-b4e6f358d39c"/>
+				<text><![CDATA[custName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="150" y="0" width="50" height="15" forecolor="#736343" uuid="35b986ac-5291-4219-bed5-66279c2e3107"/>
+				<text><![CDATA[noCarWash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="0" width="50" height="15" forecolor="#736343" uuid="48af8c74-165d-406f-aee0-7eefec27449d"/>
+				<text><![CDATA[noOilCans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="250" y="0" width="50" height="15" forecolor="#736343" uuid="29fc5fbc-58a8-4972-bef9-921f2cfd3747"/>
+				<text><![CDATA[noAirFilters]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="0" width="50" height="15" forecolor="#736343" uuid="aa087731-4bab-42fc-a811-75dba55941d7"/>
+				<text><![CDATA[noFuelfilters]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="350" y="0" width="50" height="15" forecolor="#736343" uuid="33780fce-4d5d-440e-984e-f396bf5c27d5"/>
+				<text><![CDATA[noGrease]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="400" y="0" width="50" height="15" forecolor="#736343" uuid="d8554aac-c91f-4312-9b48-e18b2bdede59"/>
+				<text><![CDATA[noPolishCloths]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="450" y="0" width="50" height="15" forecolor="#736343" uuid="4e9121a6-5c9f-4c50-b2c9-a169f84e4015"/>
+				<text><![CDATA[noPolishCans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="500" y="0" width="50" height="15" forecolor="#736343" uuid="65fa19ac-622b-47c6-b939-d955039c867f"/>
+				<text><![CDATA[noAirFreshners]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="c1bf9d63-84ef-44f5-b481-30415c764cf5"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="50" height="15" uuid="d1ab3aeb-f640-445c-9c28-c7232649d162"/>
+					<textFieldExpression><![CDATA[$F{prodOrderID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="50" y="0" width="50" height="15" uuid="7e13e825-e896-494f-b23a-dcda6df70328"/>
+					<textFieldExpression><![CDATA[$F{custID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="100" y="0" width="50" height="15" uuid="24ff191e-620b-4953-968f-3fba1c80279d"/>
+					<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="150" y="0" width="50" height="15" uuid="de95ff4f-cd59-4199-9e05-549d59602c4b"/>
+					<textFieldExpression><![CDATA[$F{noCarWash}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="200" y="0" width="50" height="15" uuid="7ee9d35c-55ca-4e03-9950-0e1a995221e5"/>
+					<textFieldExpression><![CDATA[$F{noOilCans}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="250" y="0" width="50" height="15" uuid="0476ba40-7309-45a4-ad0b-5853062caec4"/>
+					<textFieldExpression><![CDATA[$F{noAirFilters}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="300" y="0" width="50" height="15" uuid="e2202aac-565d-4489-adb1-f1084b6b87cd"/>
+					<textFieldExpression><![CDATA[$F{noFuelfilters}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="350" y="0" width="50" height="15" uuid="08073870-d8ff-4a14-9abe-3a81349bb528"/>
+					<textFieldExpression><![CDATA[$F{noGrease}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="400" y="0" width="50" height="15" uuid="572acd37-ffe0-4516-b37c-94b459c368cd"/>
+					<textFieldExpression><![CDATA[$F{noPolishCloths}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="450" y="0" width="50" height="15" uuid="378d9e29-0aa3-4093-9058-74d1418aace1"/>
+					<textFieldExpression><![CDATA[$F{noPolishCans}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="500" y="0" width="50" height="15" uuid="27b86d6b-63d8-4bfe-9380-6bf288941fda"/>
+					<textFieldExpression><![CDATA[$F{noAirFreshners}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="7a94d3f1-369b-4839-8cbf-a8a96f54a545"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="9ece6fd8-4217-4452-8f09-2993d5b69aca"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0eda47f1-01d2-4f16-a305-6f62665fc6c3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="64534aad-02ad-480e-99fa-8e07e8d78c8a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="50798d2b-7995-4434-b707-1b32ece5bd81"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

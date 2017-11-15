@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fullBooking" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9c5b634-655c-47d0-9866-3a91269b530d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select *
+from bookings]]>
+	</queryString>
+	<field name="bookID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="custID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="custName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleModel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dateOfBook" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="carWash" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tyreRemove" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="seatShamp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fullLubService" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fullDetail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="leatherSeatCare" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="autoDetail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interiorDet" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="repairs" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wheelAlignment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="extDetail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="painting" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wheelBalance" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stdDetails" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="dateOfBook">
+		<groupExpression><![CDATA[$F{dateOfBook}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="-21" y="7" width="597" height="24" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="64203c98-7400-40ec-a6e9-e6609a51abf5"/>
+					<rectangle>
+						<reportElement mode="Opaque" x="21" y="0" width="36" height="24" backcolor="#736343" uuid="910c1ced-b7de-4df8-a264-9bf2529ceb5d"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<textField>
+						<reportElement style="SubTitle" x="68" y="0" width="413" height="24" forecolor="#736343" uuid="c98b9dd4-cdd4-45d6-80b6-f43aa44688a1"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{dateOfBook}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="550" height="62" uuid="bc4986a6-b73c-43b9-b840-431ddb0d861c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[A.P.GUNAWARDHANE COMPANY (PVT)Ltd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="47" y="62" width="368" height="22" uuid="bb36a64b-ea2b-479f-b9af-ee5f62fb103e"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Overall Service Station Bookings Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="bf4f8f94-7d52-40ec-8ea2-2dee20006fdd"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="29" height="15" forecolor="#736343" uuid="980967c3-c95f-490a-9699-9460c3f0dcf1"/>
+				<text><![CDATA[bookID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="29" y="0" width="29" height="15" forecolor="#736343" uuid="ab64fc1b-73e0-4044-a3b4-da2128224d48"/>
+				<text><![CDATA[custID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="58" y="0" width="29" height="15" forecolor="#736343" uuid="a93dcd83-f93c-4595-a573-9522018b1fd8"/>
+				<text><![CDATA[custName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="87" y="0" width="29" height="15" forecolor="#736343" uuid="d9f4c8d0-b302-406f-b9ba-ad9ceeeca392"/>
+				<text><![CDATA[vehicleNumber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="116" y="0" width="29" height="15" forecolor="#736343" uuid="ccebdf8c-35ef-43fb-bb6b-da2b58f28d6c"/>
+				<text><![CDATA[vehicleModel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="145" y="0" width="29" height="15" forecolor="#736343" uuid="6866bc77-e6f1-4595-b8cb-4fd029fef8b8"/>
+				<text><![CDATA[carWash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="174" y="0" width="29" height="15" forecolor="#736343" uuid="7b1a9a58-eeda-4a69-9597-3d11d53b5e43"/>
+				<text><![CDATA[tyreRemove]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="203" y="0" width="29" height="15" forecolor="#736343" uuid="992105fc-8478-4ca4-920a-bd250b9d4f0f"/>
+				<text><![CDATA[seatShamp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="232" y="0" width="29" height="15" forecolor="#736343" uuid="dc1a3eda-f1da-4a03-875d-b86798bf1d61"/>
+				<text><![CDATA[fullLubService]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="261" y="0" width="29" height="15" forecolor="#736343" uuid="b999ef53-7fbe-43d5-bef0-e46783b20771"/>
+				<text><![CDATA[fullDetail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="290" y="0" width="29" height="15" forecolor="#736343" uuid="f87459ca-3926-4347-ad7f-e6077da8bc01"/>
+				<text><![CDATA[leatherSeatCare]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="319" y="0" width="29" height="15" forecolor="#736343" uuid="09e647ea-ed60-44bc-8fa7-83877af7ebc7"/>
+				<text><![CDATA[autoDetail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="348" y="0" width="29" height="15" forecolor="#736343" uuid="17a24dc9-edfe-492f-bc66-a6c7d529c540"/>
+				<text><![CDATA[interiorDet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="377" y="0" width="29" height="15" forecolor="#736343" uuid="70b8405f-95d1-4f8d-9c84-35b7399e529b"/>
+				<text><![CDATA[repairs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="406" y="0" width="29" height="15" forecolor="#736343" uuid="f1e1728e-17f7-4f22-9e96-ab698829a1e3"/>
+				<text><![CDATA[wheelAlignment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="435" y="0" width="29" height="15" forecolor="#736343" uuid="f9d5eac7-8a48-4f6d-9e8e-fbd6140813ba"/>
+				<text><![CDATA[extDetail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="464" y="0" width="29" height="15" forecolor="#736343" uuid="15886aef-e0ad-4d38-a7dd-6cee28eae591"/>
+				<text><![CDATA[painting]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="493" y="0" width="29" height="15" forecolor="#736343" uuid="5135edd1-a950-4407-9c70-61b3bd97120f"/>
+				<text><![CDATA[wheelBalance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="522" y="0" width="29" height="15" forecolor="#736343" uuid="0585921c-2c2c-45c2-a4c0-57451fc7ca75"/>
+				<text><![CDATA[stdDetails]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="2dbdf149-a5ce-420a-89b8-898f62b584b8"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="29" height="15" uuid="c1341bec-d0b7-4866-b9eb-39571076dac3"/>
+					<textFieldExpression><![CDATA[$F{bookID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="29" y="0" width="29" height="15" uuid="b3dd1bda-a957-4ec9-8423-3afc0af1768d"/>
+					<textFieldExpression><![CDATA[$F{custID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="58" y="0" width="29" height="15" uuid="d5435c7b-d1aa-4eae-9fc8-575a3b002bf0"/>
+					<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="87" y="0" width="29" height="15" uuid="8ff4252b-3798-45f3-abfd-14af94f0e198"/>
+					<textFieldExpression><![CDATA[$F{vehicleNumber}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="116" y="0" width="29" height="15" uuid="08c04ad9-ac44-4e61-8b9f-9a13554ef90e"/>
+					<textFieldExpression><![CDATA[$F{vehicleModel}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="145" y="0" width="29" height="15" uuid="1c44dad0-43dc-4fe4-90e5-5bd7db07d940"/>
+					<textFieldExpression><![CDATA[$F{carWash}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="174" y="0" width="29" height="15" uuid="b668fa6a-5fe6-4806-9607-c7879bd4c9ec"/>
+					<textFieldExpression><![CDATA[$F{tyreRemove}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="203" y="0" width="29" height="15" uuid="671c1189-5210-4031-886e-73d15f1ee7a4"/>
+					<textFieldExpression><![CDATA[$F{seatShamp}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="232" y="0" width="29" height="15" uuid="baeeddda-c039-4821-9bf8-4c430100bcb9"/>
+					<textFieldExpression><![CDATA[$F{fullLubService}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="261" y="0" width="29" height="15" uuid="ecc53fe9-bd9b-4cae-8f70-a2d7f1b545a0"/>
+					<textFieldExpression><![CDATA[$F{fullDetail}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="290" y="0" width="29" height="15" uuid="4207d562-ecb8-444d-9530-76829f231fac"/>
+					<textFieldExpression><![CDATA[$F{leatherSeatCare}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="319" y="0" width="29" height="15" uuid="b8527c7b-97dd-4495-bd92-149ddbb71cf4"/>
+					<textFieldExpression><![CDATA[$F{autoDetail}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="348" y="0" width="29" height="15" uuid="64208a4f-9524-4b81-8343-0d9135cdbf61"/>
+					<textFieldExpression><![CDATA[$F{interiorDet}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="377" y="0" width="29" height="15" uuid="2166c74c-45e4-4110-985e-6bfccd27e0c4"/>
+					<textFieldExpression><![CDATA[$F{repairs}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="406" y="0" width="29" height="15" uuid="c7dc89f3-dd26-4024-9a91-80e892a6df20"/>
+					<textFieldExpression><![CDATA[$F{wheelAlignment}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="435" y="0" width="29" height="15" uuid="cfa6a682-d1e5-4d66-9c0b-5284f9fffd22"/>
+					<textFieldExpression><![CDATA[$F{extDetail}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="464" y="0" width="29" height="15" uuid="5271178f-2ca1-4ca1-a227-31c0b2a20ce3"/>
+					<textFieldExpression><![CDATA[$F{painting}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="493" y="0" width="29" height="15" uuid="3d5a0c95-d82d-4f40-96c2-696930b71a33"/>
+					<textFieldExpression><![CDATA[$F{wheelBalance}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="522" y="0" width="29" height="15" uuid="0d66af23-53c5-4ae7-92d2-460f84201bb4"/>
+					<textFieldExpression><![CDATA[$F{stdDetails}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="2c85d227-8235-4e80-b4a6-7f39558943b4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="d1a68df8-4df5-42fd-9d68-fc5a770250e7"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0a5c3e9e-c034-4d64-80dc-cf2893c97d0d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="38ceb4d4-13ac-470a-a480-19c4c7b8641a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="3891707c-9ad4-4e1e-9438-6b279617f3b7"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BalSheet1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be37b0a7-c3cd-4ddb-85e3-94622ebe13d3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select Type,Description,Amount
+from Assets_and_Liabilities
+where Type like '% Assets']]>
+	</queryString>
+	<field name="Type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="totAssets" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount}]]></variableExpression>
+	</variable>
+	<variable name="TypeTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount}]]></variableExpression>
+	</variable>
+	<group name="assets">
+		<groupExpression><![CDATA[$F{Type}]]></groupExpression>
+		<groupHeader>
+			<band height="7"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="45">
+				<textField>
+					<reportElement x="0" y="0" width="303" height="20" uuid="ea6be3c3-e7c5-4896-85ca-7793eb37e29a"/>
+					<textFieldExpression><![CDATA["Total upto " + $F{Type}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="406" y="0" width="149" height="20" uuid="5ae714a4-b7c7-45bb-8cfa-79c16d2719be"/>
+					<textElement>
+						<font isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TypeTotal}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="428" height="40" uuid="56489ac5-d5fd-407e-ba54-8216e5f16924"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[A.P.Gunawardhane Company (Pvt) Ltd ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="40" width="61" height="21" uuid="9c401581-95ee-4e64-a6c3-951b9516e11f"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assets]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="406" y="11" width="149" height="20" uuid="9f46f3c7-b86c-4d53-97b4-3895acf91541"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="11" width="221" height="20" uuid="b3623c10-9eff-48f0-a165-bacea01d15b3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="11" width="185" height="20" uuid="ca374e66-0045-4be3-8835-ce755cf36cf6"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="31" width="555" height="1" uuid="6092cbc9-a64a-4aa7-bb42-87bcf10a5720"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="406" y="0" width="149" height="20" uuid="9a9d2d3e-87c5-4813-94d0-5c7a8ce0bfdc"/>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="221" height="20" uuid="784cc368-1a3b-43a1-8792-880ef9b683d0"/>
+				<textFieldExpression><![CDATA[$F{Type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="0" width="185" height="20" uuid="4e066a69-29ab-4806-a92b-bcb0658a245e"/>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement x="406" y="0" width="149" height="20" uuid="25e18121-3709-446d-a8f8-d3974b31a10e"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totAssets}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="c6986806-e0be-4f18-94fd-68f79618c66f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total Assets]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

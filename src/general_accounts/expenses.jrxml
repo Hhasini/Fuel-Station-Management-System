@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="expenses" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e7c9cc05-328a-4cc3-a098-50cbc1f5817b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *
+from expenses
+where Date=$P{date}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Voucher_No" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="totalExpense" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="430" y="36" width="100" height="20" uuid="cced486a-d35c-4f51-a661-a646762c09b4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Expenses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="16" width="125" height="20" uuid="fe6947e4-3cb5-4ea7-bb60-c59c4d336701"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[General Accounts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="349" height="36" uuid="b75a8066-4a3e-4ee1-b01d-3809a0902032"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[A.P.Gunawardhane Company (pvt) Ltd]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="330" y="6" width="100" height="20" uuid="b0e6ac89-99c8-4865-9913-62b5c401228d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="6" width="90" height="20" uuid="fce10754-b17a-450b-878d-c1f1e46f8c01"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Voucher No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="6" width="142" height="20" uuid="3abb552c-763b-4c28-a416-5b52001764f9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="6" width="88" height="20" uuid="22301fad-5efa-49e9-908c-c071d349664c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="6" width="125" height="20" uuid="454f6802-101e-4108-b9cf-bb7e669a09c7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="25" width="555" height="1" uuid="d8933ac0-3909-48e0-9665-dadfe8ad2c88"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="330" y="2" width="100" height="20" uuid="b90a7f5f-8217-4658-81d9-e53fbb199240"/>
+				<textFieldExpression><![CDATA[$F{Type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="2" width="125" height="20" uuid="8e02ee1e-12a7-4ce2-82f1-71f8f4493a5d"/>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="2" width="142" height="20" uuid="7f09b072-9841-48c4-9df7-7ec901bfa460"/>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="90" height="20" uuid="f3331bee-1854-47b8-8191-d2f793789362"/>
+				<textFieldExpression><![CDATA[$F{Voucher_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="2" width="88" height="20" uuid="0c38b51d-4dcd-4794-9e1c-2a8112463e6f"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="095e20b4-2e55-4f07-8c48-36e73857c302"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="125" height="20" uuid="6d4935fa-1398-4267-8be7-bece6afc03b0"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalExpense}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cbReciepts" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0faf22d-75f5-48a5-a240-5cc32e20ed33">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *
+from cashbook_reciepts
+where Date=$P{date1}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="InvoiceCheck_No" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="totalReciepts" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="352" height="30" uuid="7d01efed-0131-4c5d-896a-a7a15fcbaa4d"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[A.P.Gunawardhane Company (pvt) Ltd ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="0" width="130" height="20" uuid="b8c8c17d-edee-4a69-9cb3-4cfe7f608fdc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[General Accounts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="31" width="130" height="20" uuid="57e4bce6-2906-4a42-bd68-d4795375c3cf"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Cash Reciepts]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="425" y="22" width="130" height="20" uuid="0bdbffbf-8217-4f5e-90e5-7296b09968ac"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="22" width="146" height="20" uuid="d5206862-fa8a-48d1-b485-0bfa57dbaa77"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Invoice/Check No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="22" width="171" height="20" uuid="3448ec0d-5b77-4562-9b06-a2e00fa23444"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="108" height="20" uuid="86476f00-29fd-4fe7-9df2-5de992e79864"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1" uuid="b9aa9fdf-c035-466a-8424-f2baaa9be29e"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="279" y="0" width="146" height="20" uuid="4d445392-07c9-4b7e-b66c-d7b5bde72d27"/>
+				<textFieldExpression><![CDATA[$F{InvoiceCheck_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="0" width="130" height="20" uuid="b09f7049-309f-4eeb-a656-34be563eddd5"/>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="108" height="20" uuid="a0d6e867-1470-4c8d-bd16-78f43e144d1e"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="0" width="171" height="20" uuid="e7b0c1b1-cf2f-4efd-a0c1-8d1c84b77702"/>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="425" y="0" width="130" height="20" uuid="27613ab0-aa11-4cfa-b660-1686f4311384"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalReciepts}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b2dd2ed6-38be-42a7-a462-8fa131a38adc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total Reciepts]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

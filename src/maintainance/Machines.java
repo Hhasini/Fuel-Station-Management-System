@@ -1,0 +1,1874 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package maintainance;
+
+import iReport.reportGen;
+import itp.reportss;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static maintainance.MainInter_MAIN_FORM.jDesktopPane1;
+import mycode.DBconnect;
+import net.proteanit.sql.DbUtils;
+import net.sf.jasperreports.engine.JRException;
+
+/**
+ *
+ * @author HOME
+ */
+public class Machines extends javax.swing.JInternalFrame {
+             Machine m1 ;
+             Machine m2 = new Machine();
+             int n=0;
+             String smid,fmid;
+             int mcsid,mcfid;
+    /**
+     * Creates new form Machines
+     */
+    Connection con=null;
+     PreparedStatement pst=null;
+     ResultSet rs ,rs2;
+    public Machines() {
+        con =DBconnect.connect();
+        initComponents();
+        //jLabel22.setVisible(false);
+//       
+         try {
+            String initi="insert into smachine1(Name,Catogory,Price,Currency,Model,Version,Country,Year,Brand,Width,Height,Weight,Design,Capacity,Warranty,Supplier) values('"+0+"','"+0+"',"+0+",'"+0+"','"+0+"','"+0+"','"+0+"','"+0+"','"+0+"',"+0+","+0+","+0+",'"+0+"',"+0+","+0+",'"+0+"')";
+            pst = con.prepareStatement(initi);
+            pst.execute();
+            String inits="Select * from smachine1 where Name='"+0+"'";
+            pst = con.prepareStatement(inits);
+            rs = pst.executeQuery();
+           while(rs.next())
+           {
+            smid=rs.getString("mno");
+           
+           }
+               
+            System.out.print(smid);
+            String initd="delete from  smachine1 where Name='"+0+"'";
+             pst = con.prepareStatement(initd);
+            pst.execute();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+            ex.getMessage();
+        }  
+         try {
+            String initi="insert into fmachine1(Name,Catogory,Price,Currency,Model,Version,Country,Year,Brand,Syringe,Capacity,Warranty,Supplier) values('"+0+"','"+0+"',"+0+",'"+0+"','"+0+"','"+0+"','"+0+"','"+0+"','"+0+"','"+0+"',"+0+","+0+",'"+0+"')";
+            pst = con.prepareStatement(initi);
+            pst.execute();
+            String inits="Select * from  fmachine1 where Name='"+0+"'";
+            pst = con.prepareStatement(inits);
+            rs = pst.executeQuery();
+           while(rs.next())
+           {
+            fmid=rs.getString("mno");
+           
+           }
+               
+            System.out.print(fmid);
+            String initd="delete from  fmachine1 where Name='"+0+"'";
+             pst = con.prepareStatement(initd);
+            pst.execute();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+            ex.getMessage();
+        }  
+        
+        mc16.setEnabled(false);
+        mc18.setEnabled(false);
+        mc17.setEnabled(false);
+        mc19.setEnabled(false);
+        mc15.setEnabled(false);
+       // jButton3.setVisible(false);
+        //jButton4.setVisible(false);
+        jButton9.setEnabled(false);
+        jButton10.setEnabled(false);
+        
+        // jRadioButton2.setVisible(false); 
+         //jRadioButton1.setVisible(false);
+       
+        //mc15.setEnabled(false);
+              jRadioButton5.setVisible(false); 
+              jRadioButton6.setVisible(false);
+              jButton12.setVisible(false);
+               mc18.setEnabled(false);
+              jButton1.setVisible(false);
+              jButton2.setVisible(false);
+              jButton5.setVisible(false);
+              jButton8.setVisible(false);
+              jLabel20.setEnabled(false); 
+              
+              mc20.setEnabled(false);
+             
+             // jButton11.setVisible(false);
+             
+ 
+             try{
+        String t2="Select * from smachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        }
+        catch(Exception e)
+        {
+           e.getMessage(); 
+        } 
+//             
+             try{
+        String t2="Select * from smachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable2.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        }
+        catch(Exception e)
+        {
+           e.getMessage(); 
+        }           
+//         
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        mc2 = new javax.swing.JTextField();
+        mc3 = new javax.swing.JTextField();
+        mc1 = new javax.swing.JTextField();
+        mc4 = new javax.swing.JTextField();
+        mc5 = new javax.swing.JTextField();
+        mc6 = new javax.swing.JTextField();
+        mc7 = new javax.swing.JTextField();
+        mc8 = new javax.swing.JTextField();
+        mc9 = new javax.swing.JTextField();
+        mc10 = new javax.swing.JTextField();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jButton7 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        jc1 = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
+        mc15 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        mc16 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        mc18 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        mc17 = new javax.swing.JTextField();
+        mc19 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        s2 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        lblmc = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jButton14 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        mc20 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jButton8 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jLabel27 = new javax.swing.JLabel();
+        sname = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+
+        setMaximumSize(new java.awt.Dimension(1030, 630));
+        setMinimumSize(new java.awt.Dimension(1030, 630));
+        setPreferredSize(new java.awt.Dimension(1030, 630));
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Machine Information");
+
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Machine No");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel18.setText("Machine Brand");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setText("Machine Price");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setText("Machine Model");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setText("Version Of the Machine");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setText("Made In Country");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("Made in Year");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Machine Name");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Machine Catogory");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setText("Machine Capacity");
+
+        mc3.setText("0");
+        mc3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc3ActionPerformed(evt);
+            }
+        });
+
+        mc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc1ActionPerformed(evt);
+            }
+        });
+
+        mc4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc4ActionPerformed(evt);
+            }
+        });
+
+        mc5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc5ActionPerformed(evt);
+            }
+        });
+
+        mc9.setText("0");
+
+        mc10.setText("0");
+        mc10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc10ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton2.setText("Filling Station Machine");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton1.setText("Service Station Machine");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setBackground(new java.awt.Color(0, 0, 0));
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("Add Information");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setText("Select Machine Type");
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Insert Machine Information");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel14.setText("Warranty Period");
+
+        jButton11.setBackground(new java.awt.Color(0, 0, 0));
+        jButton11.setForeground(new java.awt.Color(255, 255, 255));
+        jButton11.setText("Reset");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jc1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rs", "$", "£", "¥", "¢", "€" }));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setText("Syring type");
+
+        mc15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc15ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setText("Machine Width");
+
+        mc16.setText("0");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel12.setText("Machine Hight");
+
+        mc18.setText("0");
+        mc18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc18ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel13.setText("Machine Weight");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel15.setText("Mchine Design");
+
+        mc17.setText("0");
+        mc17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc17ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setBackground(new java.awt.Color(0, 0, 0));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
+        jButton9.setText("Back");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setBackground(new java.awt.Color(0, 0, 0));
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
+        jButton10.setText("Reset");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Supplier Name");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        lblmc.setText("                     ");
+
+        jButton3.setText("Report");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(350, 350, 350)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(289, 289, 289))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jButton7)
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel19))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblmc)
+                                        .addGap(123, 123, 123))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(23, 23, 23)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(mc4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                                .addComponent(mc3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(mc5, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(s2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(mc2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(mc1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25)))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addGap(76, 76, 76)
+                                        .addComponent(mc7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(mc8, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(mc9, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(mc10, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(mc6, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jButton9))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(mc18, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                    .addComponent(mc19)
+                                    .addComponent(jButton10)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel11))
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(mc16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                    .addComponent(mc15, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mc17)))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(mc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jRadioButton1)
+                                    .addComponent(jRadioButton2)))
+                            .addComponent(lblmc))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addComponent(mc15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(mc16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(mc8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(mc17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mc9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel13)
+                                .addComponent(mc18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(mc10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton9))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mc19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton10))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(mc3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(mc4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(mc5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel18)
+                                    .addComponent(mc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel16)
+                                .addGap(28, 28, 28))
+                            .addComponent(mc7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(s2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))))
+                .addGap(10, 10, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton3))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton11))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Add Details", jPanel1);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setText("Select Action");
+
+        jRadioButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton3.setText("Delete Machine Information");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton4.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton4.setText("Update Machine Information");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setBackground(new java.awt.Color(0, 0, 0));
+        jButton14.setForeground(new java.awt.Color(255, 255, 255));
+        jButton14.setText("Back");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton3)
+                            .addComponent(jRadioButton4)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton14)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton14)
+                .addContainerGap())
+        );
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel20.setText("Machine No");
+
+        mc20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mc20ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Delete Service Machine");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel23.setText("Select Machine type");
+
+        jButton2.setBackground(new java.awt.Color(51, 51, 51));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Delete Filling Machine");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Update Service Machine");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton5.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton5.setText("Service Station");
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton6.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton6.setText("Filling Station");
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setBackground(new java.awt.Color(0, 0, 0));
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Update Filling Machine");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setBackground(new java.awt.Color(0, 0, 0));
+        jButton12.setForeground(new java.awt.Color(255, 255, 255));
+        jButton12.setText("Back to selections");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel21.setText("(To update a record Select the row and edit cells in that row)");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jRadioButton5)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton6)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(297, 297, 297)
+                                .addComponent(jButton12))
+                            .addComponent(jLabel23)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jButton5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mc20, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel21)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jButton12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mc20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton5))
+                .addContainerGap(237, Short.MAX_VALUE))
+        );
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(391, 391, 391))
+        );
+
+        jTabbedPane1.addTab("Edit Details", jPanel4);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel10.setBackground(new java.awt.Color(204, 204, 255));
+
+        jRadioButton7.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton7.setText("Filling Machine Table");
+        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton7ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton8.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton8.setText("Service Machine Table");
+        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton8ActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Select Table ");
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel27.setText("Machine Name");
+
+        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("search");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jRadioButton7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton8))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sname, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton6)))
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton8)
+                    .addComponent(jRadioButton7))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(sname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
+                .addGap(58, 58, 58)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(226, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(316, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("View Details", jPanel3);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void mc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc1ActionPerformed
+
+    private void mc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc4ActionPerformed
+
+    private void mc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc5ActionPerformed
+
+    private void mc10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc10ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // jPanel3.setVisible(true);
+        n=0;
+        jLabel10.setEnabled(false);
+        jLabel11.setEnabled(true);
+        jLabel12.setEnabled(false);
+        jLabel13.setEnabled(false);
+        jLabel15.setEnabled(false);
+        jRadioButton1.setSelected(false);
+        jRadioButton1.setEnabled(false);
+        mc16.setEnabled(false);
+        mc18.setEnabled(false);
+        mc17.setEnabled(false);
+        mc19.setEnabled(false);
+     //   mc14.setVisible(false);
+        mc15.setEnabled(true);
+        jButton9.setEnabled(true);
+        jButton10.setEnabled(true);
+        
+       // TODO add your handling code here:
+            try{
+        String t2="Select * from fmachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        }
+        catch(Exception e)
+        {
+           e.getMessage(); 
+        }                  
+           
+            mcfid=Integer.parseInt(fmid);
+      mcfid++;
+       lblmc.setText(String.valueOf(mcfid));
+        
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+            n=1;
+            //jButton3.setVisible(true);   
+           // jButton4.setVisible(false);
+        //jPanel3.setVisible(true);
+        jLabel10.setEnabled(true);
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(true);
+        jLabel13.setEnabled(true);
+        jLabel15.setEnabled(true);
+
+        mc16.setEnabled(true);
+        mc18.setEnabled(true);
+        mc17.setEnabled(true);
+        mc19.setEnabled(true);
+        mc15.setEnabled(false);
+        jRadioButton2.setEnabled(false);
+        jRadioButton2.setSelected(false);
+         jButton9.setEnabled(true);
+        jButton10.setEnabled(true);// TODO add your handling code here:
+        
+           try{
+        String t2="Select * from smachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        }
+        catch(Exception e)
+        {
+           e.getMessage(); 
+        }           
+       mcsid=Integer.parseInt(smid);
+      mcsid++;
+       lblmc.setText(String.valueOf(mcsid)); 
+         
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void mc15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc15ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+          
+           
+     
+           // String q1 = null;
+           // String q2 = null;
+           // String q3=null;
+            String mcname=mc1.getText();
+            String mccat=mc2.getText();
+           Float mcprice=Float.parseFloat(mc3.getText());
+            String cur=jc1.getSelectedItem().toString();
+            String mcmodel=mc4.getText();
+            String mcversion=mc6.getText();
+            String mccountry=mc8.getText();
+            String mcbrand=mc7.getText();
+            String mcyear=mc5.getText();
+            Float mccapcity=Float.parseFloat(mc9.getText());
+            int mwrr = Integer.parseInt(mc10.getText());
+             String name=s2.getText();
+             
+             if(name.length()==0||mcname.length()==0)
+          {  JOptionPane.showMessageDialog(null,"Please Enter Supplier name and Machine number!");}
+//          
+//               
+            else{
+          
+
+            m1 = new Machine(mcname,mccat,mcprice,mcversion,mccountry,mcbrand,mcyear,mcmodel,mccapcity,mwrr,cur,name);
+            try{
+            if(n==0){
+                     String q2 = null;
+                     String mcstyp=mc15.getText();
+                     q2 = m1.InsertIntoLmachines(mcstyp);
+                     pst=con.prepareStatement(q2);
+                     pst.execute();
+            JOptionPane.showMessageDialog(null,"Values Inserted Successefully!");
+                
+          
+        String t2="Select * from fmachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        
+                  
+         }
+            
+            else if(n==1){
+                String q2 = null;
+                 Float mcheight=Float.parseFloat(mc18.getText());
+                     Float mcwidth=Float.parseFloat(mc16.getText());
+                     Float mcweight=Float.parseFloat(mc17.getText());
+                     String mcdesign=mc19.getText();
+                     //int  mcWrr=Integer.parseInt(mc14.getText());
+                     q2 = m1.InsertIntoSmachines(mcweight, mcheight, mcwidth, mcdesign);
+                     pst=con.prepareStatement(q2);
+                     pst.execute();
+                     JOptionPane.showMessageDialog(null,"Values Inserted Successefully!");
+                         
+          
+        String t2="Select * from smachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        
+       
+            }mc1.setText("");
+            mc2.setText("");
+            mc3.setText("0");
+            mc4.setText("");
+            mc5.setText("");
+            mc6.setText("");
+            mc7.setText("");
+            mc8.setText("");
+            mc9.setText("0");
+            mc10.setText("0");
+            mc15.setText("");
+            mc16.setText("0");
+            mc17.setText("0");
+            mc18.setText("0");
+            mc19.setText("");
+            
+            } catch (Exception e) {
+            System.out.println(e.getMessage());
+             System.out.println(e);
+             JOptionPane.showMessageDialog(null,"Not Successfull!.Please check connectivity.check values.Then retry");
+        }
+          
+            }
+             
+             String r="v";
+             String s="Select count(*)from supplier1 where Name='"+name+"'";
+                 try {
+                     pst=con.prepareStatement(s);
+                       rs=pst.executeQuery();
+                        while(rs.next())
+           {
+            r=rs.getString("count(*)");
+           
+           }
+                        System.out.println(r);
+                        int x=Integer.parseInt(r);
+                        if(x==0){  int val1 =JOptionPane.showConfirmDialog(null,"This Supplier not existing in the Supplier Table.Do you want to add This Supplier details to the Supplier table?");  
+                     if(val1 == 0){MainInter_MAIN_FORM.jDesktopPane1.removeAll();
+       Supplier s1 = new Supplier();
+       MainInter_MAIN_FORM.jDesktopPane1.add(s1).setVisible(true);    }}
+                 } catch (SQLException ex) {
+                     Logger.getLogger(Machines.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+      
+             
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void mc20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc20ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ int val1 =JOptionPane.showConfirmDialog(null,"Do you really want to delete?"); 
+             if(val1 ==  0){
+        try {
+             
+            int mno = Integer.parseInt( mc20.getText());
+                    
+
+            String q4=m2.Deletesmachine(mno);
+
+            pst = con.prepareStatement(q4);
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Values deleted Successefully. Press View Button to View existing Values");
+
+            // TODO add your handling code here:
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Not Successfull!.Please check connectivity.check values.Then retry");
+            e.getMessage();
+        }}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                    int val1 =JOptionPane.showConfirmDialog(null,"Do you really want to delete?"); 
+             if(val1 ==  0){                try {
+            int mno = Integer.parseInt(mc20.getText());
+
+            String q4=m2.Deletelmachine(mno);
+
+            pst = con.prepareStatement(q4);
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Values deleted Successefully. Press View Button to View existing Values");
+
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Not Successfull!.Please check connectivity.check values.Then retry");
+            Logger.getLogger(Machines.class.getName()).log(Level.SEVERE, null, ex);
+        }}   // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+                 int val1 =JOptionPane.showConfirmDialog(null,"Do you really want to update?");  
+                     if(val1 == 0){
+                     String q5 =null;
+                     int iid = Integer.parseInt( mc20.getText());
+                     
+                     //System.out.println(st);
+//                     
+            String mcname=jTable2.getValueAt(jTable2.getSelectedRow(),1).toString();
+            String mccat=jTable2.getValueAt(jTable2.getSelectedRow(),2).toString();
+            Float mcprice=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),3).toString());
+            String cur=jTable2.getValueAt(jTable2.getSelectedRow(),4).toString();
+            String mcmodel=jTable2.getValueAt(jTable2.getSelectedRow(),5).toString();
+            String mcversion=jTable2.getValueAt(jTable2.getSelectedRow(),6).toString();
+            String mccountry=jTable2.getValueAt(jTable2.getSelectedRow(),7).toString();
+            String mcbrand=jTable2.getValueAt(jTable2.getSelectedRow(),9).toString();
+            String mcyear=jTable2.getValueAt(jTable2.getSelectedRow(),8).toString();
+            Float mccapcity=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),14).toString());
+            int mwrr = Integer.parseInt(jTable2.getValueAt(jTable2.getSelectedRow(),15).toString());
+            String name=jTable2.getValueAt(jTable2.getSelectedRow(),16).toString();
+            Float mcheight=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),11).toString());
+            Float mcwidth=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),10).toString());
+            Float mcweight=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),12).toString());
+            String mcdesign=jTable2.getValueAt(jTable2.getSelectedRow(),13).toString();
+             
+                
+                     
+
+            m1 = new Machine(mcname,mccat,mcprice,mcversion,mccountry,mcbrand,mcyear,mcmodel,mccapcity,mwrr,cur,name);
+           q5 = m1.UpdateSmachine(iid,mcweight,mcheight,mcwidth,mcdesign);
+                    
+                    
+                     try{
+                     pst = con.prepareStatement(q5);
+                     pst.execute();
+                     JOptionPane.showMessageDialog(null,"Values updated Successefully. Press View Button to View Values");
+                     // TODO add your handling code here:
+                 } catch (SQLException ex) {
+                      JOptionPane.showMessageDialog(null,"Not Successfull!.Please check connectivity.check values.Then retry");
+                     Logger.getLogger(Machines.class.getName()).log(Level.SEVERE, null, ex);
+                     System.out.print(ex.getMessage());
+                 }}
+                      try{
+        String t2="Select * from smachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable2.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        }
+        catch(Exception e)
+        {
+           e.getMessage(); 
+        }           
+         
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+             jRadioButton5.setVisible(true); 
+             jRadioButton6.setVisible(true);
+             jRadioButton5.setEnabled(true);
+             jRadioButton6.setEnabled(true);
+             jRadioButton4.setEnabled(false);
+             jRadioButton4.setSelected(false);
+             jRadioButton5.setSelected(false);
+             jRadioButton6.setSelected(false);
+             jButton5.setVisible(false);
+             jButton8.setVisible(false);
+             jLabel20.setEnabled(true); 
+             mc20.setEnabled(true);
+             jButton12.setVisible(true);
+             
+              mc18.setEnabled(false);
+              jButton1.setVisible(false);
+              jButton2.setVisible(false);
+              lblmc.setEnabled(false);
+           jLabel21.setVisible(false);
+             
+          // jButton1.setVisible(true);
+          // jButton2.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+              jRadioButton5.setVisible(true); 
+              jRadioButton6.setVisible(true);
+              jRadioButton5.setEnabled(true);
+              jRadioButton6.setEnabled(true);
+              jRadioButton3.setEnabled(false);
+              jRadioButton3.setSelected(false);
+              jRadioButton5.setSelected(false);
+              jRadioButton6.setSelected(false);
+              jButton1.setVisible(false);
+              jButton2.setVisible(false);
+              jButton5.setVisible(false);
+              jButton8.setVisible(false);
+              jLabel20.setEnabled(true); 
+              mc20.setEnabled(true);
+              lblmc.setEnabled(true);
+            
+              mc18.setEnabled(true);
+             
+              jButton12.setVisible(true);
+             
+              jLabel21.setVisible(false);
+        
+              
+            //jButton5.setVisible(true);
+           //jButton8.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+               boolean z = true;
+        jRadioButton6.setEnabled(false); 
+        jRadioButton6.setSelected(false); 
+                 jButton2.setVisible(false);
+                  jButton8.setVisible(false);
+                  if(z==jRadioButton3.isEnabled())
+                  {  jButton1.setVisible(true);}
+                  else if(z==jRadioButton4.isEnabled()){jButton5.setVisible(true);}
+              try{
+        String t2="Select * from smachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+               jTable2.setModel(DbUtils.resultSetToTableModel(rs));
+               jTable1.setModel(DbUtils.resultSetToTableModel(rs));} catch (SQLException ex) {
+                     Logger.getLogger(Machines.class.getName()).log(Level.SEVERE, null, ex);
+                 }// TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+                           boolean y =true;
+        jRadioButton5.setEnabled(false);
+                jRadioButton5.setSelected(false); 
+
+                 jButton5.setVisible(false);
+                  jButton1.setVisible(false);
+                  if(y==jRadioButton3.isEnabled())
+                  {  jButton2.setVisible(true);}
+                  else if(y==jRadioButton4.isEnabled()){jButton8.setVisible(true);}   
+                       
+              try{
+        String t2="Select * from fmachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+               jTable2.setModel(DbUtils.resultSetToTableModel(rs));
+               jTable1.setModel(DbUtils.resultSetToTableModel(rs));} catch (SQLException ex) {
+                     Logger.getLogger(Machines.class.getName()).log(Level.SEVERE, null, ex);
+                 }// TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+  int val1 =JOptionPane.showConfirmDialog(null,"Do you really want to update?");  
+                     if(val1 == 0){
+                     String q5 =null;
+                     int iid = Integer.parseInt( mc20.getText());
+                     
+                     //System.out.println(st);
+                     
+            String mcname=jTable2.getValueAt(jTable2.getSelectedRow(),1).toString();
+            String mccat=jTable2.getValueAt(jTable2.getSelectedRow(),2).toString();
+            Float mcprice=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),3).toString());
+            String cur=jTable2.getValueAt(jTable2.getSelectedRow(),4).toString();
+            String mcmodel=jTable2.getValueAt(jTable2.getSelectedRow(),5).toString();
+            String mcversion=jTable2.getValueAt(jTable2.getSelectedRow(),6).toString();
+            String mccountry=jTable2.getValueAt(jTable2.getSelectedRow(),7).toString();
+            String mcbrand=jTable2.getValueAt(jTable2.getSelectedRow(),9).toString();
+            String mcyear=jTable2.getValueAt(jTable2.getSelectedRow(),8).toString();
+            Float mccapcity=Float.parseFloat(jTable2.getValueAt(jTable2.getSelectedRow(),11).toString());
+            int mwrr = Integer.parseInt(jTable2.getValueAt(jTable2.getSelectedRow(),12).toString());
+             String name=jTable2.getValueAt(jTable2.getSelectedRow(),13).toString();
+            String mcst=jTable2.getValueAt(jTable2.getSelectedRow(),10).toString();
+             
+                
+                     
+
+            m1 = new Machine(mcname,mccat,mcprice,mcversion,mccountry,mcbrand,mcyear,mcmodel,mccapcity,mwrr,cur,name);
+           q5 = m1.UpdateLmachine(iid, mcst);
+                    
+                    
+                     try{
+                     pst = con.prepareStatement(q5);
+                     pst.execute();
+                     JOptionPane.showMessageDialog(null,"Values updated Successefully. Press View Button to View Values");
+                     // TODO add your handling code here:
+                 } catch (SQLException ex) {
+                      JOptionPane.showMessageDialog(null,"Not Successfull!.Please check connectivity.check values.Then retry");
+                     Logger.getLogger(Machines.class.getName()).log(Level.SEVERE, null, ex);
+                 }}  
+                      try{
+        String t2="Select * from fmachine1";
+        pst=con.prepareStatement(t2);
+        rs=pst.executeQuery();
+        
+        jTable2.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        }
+        catch(Exception e)
+        {
+           e.getMessage(); 
+        }           
+         
+                     // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+     
+        mc16.setEnabled(false);
+        mc18.setEnabled(false);
+        mc17.setEnabled(false);
+        mc19.setEnabled(false);
+        mc15.setEnabled(false);
+       // jButton3.setVisible(false);
+        //jButton4.setVisible(false);
+        jButton9.setEnabled(false);
+        jButton10.setEnabled(false);
+         jRadioButton1.setSelected(false);
+        jRadioButton1.setEnabled(true);
+         jRadioButton2.setSelected(false);
+        jRadioButton2.setEnabled(true);
+          mc16.setText("0");   
+              mc18.setText("0");  
+              mc17.setText("0"); 
+              mc19.setText(" ");  
+              mc15.setText(" ");
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+              mc16.setText(" ");   
+              mc18.setText(" ");  
+              mc17.setText(" "); 
+              mc19.setText(" ");  
+              mc15.setText(" ");  // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+               // jLabel22.setVisible(false);
+       
+        jLabel10.setEnabled(false); 
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(false);
+        jLabel13.setEnabled(false);
+        jLabel15.setEnabled(false);
+        mc16.setEnabled(false);
+        mc18.setEnabled(false);
+        mc17.setEnabled(false);
+        mc19.setEnabled(false);
+        mc15.setEnabled(false);
+      //  jButton3.setVisible(false);
+       // jButton4.setVisible(false);
+        jButton9.setEnabled(false);
+        jButton10.setEnabled(false);
+        
+         
+         jRadioButton2.setEnabled(true); 
+         jRadioButton1.setEnabled(true);
+          jRadioButton1.setSelected(false);
+           jRadioButton2.setSelected(false);
+         
+             
+              mc1.setText(" ");
+              mc2.setText(" ");   
+              mc3.setText(" ");  
+              mc4.setText(" "); 
+              mc5.setText(" ");  
+              mc6.setText(" ");
+              mc7.setText(" ");   
+              mc8.setText(" ");  
+              mc9.setText(" "); 
+              mc10.setText(" ");  
+             
+                                    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+            boolean x = true;
+                    if(x==jRadioButton3.isEnabled())
+                    { jRadioButton5.setVisible(true); 
+             jRadioButton6.setVisible(true);
+             jRadioButton5.setEnabled(true);
+             jRadioButton6.setEnabled(true);
+             jRadioButton4.setEnabled(false);
+             jRadioButton4.setSelected(false);
+             jRadioButton5.setSelected(false);
+             jRadioButton6.setSelected(false);
+             jButton5.setVisible(false);
+             jButton8.setVisible(false);
+             jLabel20.setEnabled(true); 
+             mc20.setEnabled(true);
+             jButton12.setVisible(true);
+           
+              mc18.setEnabled(false);
+              jButton1.setVisible(false);
+              jButton2.setVisible(false);
+              lblmc.setEnabled(false);
+             }
+                    else if(x==jRadioButton4.isEnabled()){
+                      jRadioButton5.setVisible(true); 
+              jRadioButton6.setVisible(true);
+              jRadioButton5.setEnabled(true);
+              jRadioButton6.setEnabled(true);
+              jRadioButton3.setEnabled(false);
+              jRadioButton3.setSelected(false);
+              jRadioButton5.setSelected(false);
+              jRadioButton6.setSelected(false);
+              jButton1.setVisible(false);
+              jButton2.setVisible(false);
+              jButton5.setVisible(false);
+              jButton8.setVisible(false);
+              jLabel20.setEnabled(true); 
+              mc20.setEnabled(true);
+              lblmc.setEnabled(true);
+            
+              mc18.setEnabled(true);
+             
+              jButton12.setVisible(true);
+              
+              }// TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+              jRadioButton5.setVisible(false); 
+              jRadioButton6.setVisible(false);
+              jRadioButton5.setSelected(false); 
+              jRadioButton6.setSelected(false);
+              jRadioButton4.setEnabled(true);
+              jRadioButton3.setEnabled(true);
+              jRadioButton3.setSelected(false); 
+              jRadioButton4.setSelected(false);
+              jButton12.setVisible(false);
+               mc18.setEnabled(false);
+              jButton1.setVisible(false);
+              jButton2.setVisible(false);
+              jButton5.setVisible(false);
+              jButton8.setVisible(false);
+              jLabel20.setEnabled(false); 
+              lblmc.setEnabled(false);
+             
+              mc20.setEnabled(false);
+             
+              jButton11.setVisible(false);
+                        
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void mc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc3ActionPerformed
+
+    private void mc17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc17ActionPerformed
+
+    private void mc18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mc18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mc18ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+          mc20.setText(jTable2.getValueAt(jTable2.getSelectedRow(),0).toString());        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
+        if(jRadioButton7.isSelected())
+        
+        try{
+
+            String val=sname.getText();
+
+            String t1="Select * from fmachine1 where name = '"+val+"' ";
+
+            pst=con.prepareStatement(t1);
+            rs=pst.executeQuery();
+
+            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
+
+        }// TODO add your handling code here:
+        catch (SQLException ex) {
+            Logger.getLogger(view.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        else{ try{
+
+            String val=sname.getText();
+
+            String t1="Select * from smachine1 where name = '"+val+"' ";
+
+            pst=con.prepareStatement(t1);
+            rs=pst.executeQuery();
+
+            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
+
+        }// TODO add your handling code here:
+        catch (SQLException ex) {
+            Logger.getLogger(view.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+        jRadioButton8.setSelected(false);
+        
+        try{
+
+            
+            String t1="Select * from fmachine1 ";
+
+            pst=con.prepareStatement(t1);
+            rs=pst.executeQuery();
+
+            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
+
+        }// TODO add your handling code here:
+        catch (SQLException ex) {
+            Logger.getLogger(view.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton7ActionPerformed
+
+    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+                      jRadioButton7.setSelected(false);
+        
+        try{
+
+            
+            String t1="Select * from smachine1 ";
+
+            pst=con.prepareStatement(t1);
+            rs=pst.executeQuery();
+
+            jTable4.setModel(DbUtils.resultSetToTableModel(rs));
+
+        }// TODO add your handling code here:
+        catch (SQLException ex) {
+            Logger.getLogger(view.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO a        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton8ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // report
+       
+        
+        try {
+            // TODO add your handling code here:
+            reportGen gen = new reportGen("./src/sReport/machine.jasper");
+        } catch (JRException ex) {
+            Logger.getLogger(reportss.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JComboBox jc1;
+    private javax.swing.JLabel lblmc;
+    private javax.swing.JTextField mc1;
+    private javax.swing.JTextField mc10;
+    private javax.swing.JTextField mc15;
+    private javax.swing.JTextField mc16;
+    private javax.swing.JTextField mc17;
+    private javax.swing.JTextField mc18;
+    private javax.swing.JTextField mc19;
+    private javax.swing.JTextField mc2;
+    public javax.swing.JTextField mc20;
+    private javax.swing.JTextField mc3;
+    private javax.swing.JTextField mc4;
+    private javax.swing.JTextField mc5;
+    private javax.swing.JTextField mc6;
+    private javax.swing.JTextField mc7;
+    private javax.swing.JTextField mc8;
+    private javax.swing.JTextField mc9;
+    private javax.swing.JTextField s2;
+    private javax.swing.JTextField sname;
+    // End of variables declaration//GEN-END:variables
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportchart" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9a05844a-7cf5-44a2-bf7f-0f41a8c13fab">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="cdate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select l.date, b.prname,i.proId,SUM(i.quantity)
+from salesitems i,lubricants b,lubricantsales l
+where b.prCode=i.proId and l.date=$P{cdate} and i.invoiceNo=l.invoiceNo
+group by i.proId]]>
+	</queryString>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="proId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SUM(i.quantity)" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="3" y="0" width="549" height="62" uuid="8f1ed97a-6b3c-4882-b79c-15ebbf093ed0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="26" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[A.P GUNAWARDHANA (PVT) LTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="4" y="62" width="548" height="37" uuid="a01143d3-db2a-4be0-85b2-2292f1bd2af4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[FUEL SALES AND STOCK LEVEL MANAGEMENT-LUBRICANT SALES SUMMARY]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="79477a63-9c35-4fbb-b4fd-a804d25e0090"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="10937398-672a-47df-a727-649ba1e42e94"/>
+					<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="138" y="0" width="138" height="15" uuid="a3fa5ba5-d4de-461d-9b49-549de3b57618"/>
+					<textFieldExpression><![CDATA[$F{prname}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="276" y="0" width="138" height="15" uuid="23b718b5-0d12-4b66-a0d4-456caa205feb"/>
+					<textFieldExpression><![CDATA[$F{proId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="414" y="0" width="138" height="15" uuid="099c44be-8549-4264-8577-d6d1546811bd"/>
+					<textFieldExpression><![CDATA[$F{SUM(i.quantity)}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="205" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-19" y="181" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="6e1a8347-9c21-4ac4-8547-bb31b217fd26"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="c360ffd2-786d-4848-9e64-72372d90b60c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="920ee1c2-9d6a-4336-8a2d-ed614715873a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="d55efe38-2d25-4601-a218-e0da177b14a2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<pie3DChart>
+				<chart>
+					<reportElement x="138" y="0" width="277" height="181" uuid="86c8cac1-ec3b-4485-af0b-65f4af60f5ab"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{prname}]]></keyExpression>
+					<valueExpression><![CDATA[$F{SUM(i.quantity)}]]></valueExpression>
+					<labelExpression><![CDATA[$F{proId}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
